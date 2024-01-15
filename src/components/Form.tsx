@@ -1,6 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { FieldValues, useForm } from 'react-hook-form'
-import { z } from 'zod'
+import { z } from 'zod' // zod.dev
 
 const schema = z.object({
   name: z.string().min(3, { message: 'Name must be at least 3 characters' }),
@@ -15,7 +15,7 @@ const Form = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm<FormData>({ resolver: zodResolver(schema) })
 
   const onSubmit = (data: FieldValues) => console.log(data)
@@ -48,7 +48,7 @@ const Form = () => {
           />
           {errors.age && <p className="text-danger">{errors.age.message}</p>}
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button disabled={!isValid} type="submit" className="btn btn-primary">
           Submit
         </button>
       </form>
