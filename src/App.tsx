@@ -7,6 +7,7 @@ import Like from './components/Like'
 import Form from './components/Form'
 import ExpenseList from './components/ExpenseList'
 import ExpenseFilter from './components/ExpenseFilter'
+import ExpenseForm from './components/ExpenseForm'
 
 const App = () => {
   const [visible, setVisible] = useState(false)
@@ -31,6 +32,7 @@ const App = () => {
 
   return (
     <div className="container">
+      <ExpenseForm />
       <div className="m-2">
         <ExpenseFilter onSelectCategory={category => setSetselectedCategory(category)} />
       </div>
