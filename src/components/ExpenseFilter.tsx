@@ -22,3 +22,4 @@ const ExpenseFilter = ({ onSelectCategory }: Props) => {
 }
 
 export default ExpenseFilter
+3.
